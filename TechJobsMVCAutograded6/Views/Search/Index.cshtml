@@ -1,4 +1,6 @@
-﻿<div class="container body-content">
+﻿@model List<TechJobsMVCAutograded6.Models.Job>
+
+<div class="container body-content">
 
     <h1>@ViewBag.title</h1>
 
@@ -26,8 +28,35 @@
 
     <hr />
 
+    @if (ViewBag.jobs != null)
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    @foreach (var tableChoice in ViewBag.tableChoices)
+                    {
+                        <th>@tableChoice.Value</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in ViewBag.jobs)
+                {
+                    <tr>
+                        <td>@job.Name</td>
+                        <td>@job.Employer.Name</td>
+                        <td>@job.Location.Name</td>
+                        <td>@job.CoreCompetency.Name</td>
+                        <td>@job.PositionType.Name</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No results found.</p>
+    }
     @* TODO #4 - Loop over the search results to display all job fields. *@
-
-
-
 </div>
