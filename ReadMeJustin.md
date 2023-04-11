@@ -87,4 +87,20 @@ TASK 4: DISPLAY SEARCH RESULTS
 TODO #4 - Loop over the search results to display all job fields.
 A) Create a loop to display each job passed in from the controller.
 B) Put the job results into a set of tables, similar to what you did for the List/Jobs.cshtml view.
+Task completion explanation
 ********************************************************************************************
+This code is an HTML view that displays a search form and a table of job search results.
+
+The first line specifies that the view model for this view is a list of Job objects.
+
+The <div> tag with class="container body-content" wraps the entire view and sets its style.
+
+<h1> tag with @ViewBag.title inserts the title specified in the ViewBag.
+
+The search form is a standard HTML form that sends a POST request to the "/search/results" URL when submitted. It has two form elements: a radio button group with the search categories specified in the ViewBag.columns object, and a text input for the search keyword.
+
+The input tag for the radio buttons has a name attribute set to "searchType" and a value attribute set to the key of the column. The checked attribute is set to true if the key is "all". The label tag for each radio button displays the corresponding column name.
+
+The <hr> tag is a horizontal line that separates the search form from the search results.
+
+The conditional statement @if (ViewBag.jobs != null) checks if there are any job search results to display. If there are, it creates an HTML table to display the results, with a table header row containing the table column headings specified in the ViewBag.tableChoices object, and a table body row for each job in the ViewBag.jobs list. The table body rows display the name, employer, location, core competency, and position type of each job. If there are no job search results to display, it displays a message "No results found" using the <p> tag.
