@@ -267,6 +267,7 @@ public class JobData
     {
         LoadData();
         AllPositionTypes.Sort(new NameSorter());
+
         return AllPositionTypes;
     }
 
